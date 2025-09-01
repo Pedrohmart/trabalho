@@ -1,4 +1,4 @@
-name: CI Básico
+name: CI Super Simples
 
 on:
   push:
@@ -7,12 +7,8 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  teste:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checar código
-      uses: actions/checkout@v3
-
-    - name: Exibir mensagem de teste
-      run: echo "Workflow mínimo funcionando! ✅"
+      - name: Mensagem de teste
+        run: echo "Workflow mínimo funcionando! ✅"
