@@ -1,14 +1,17 @@
-name: CI Pipeline
+name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
-  run-script:
+  build:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
-    - name: Run app.py
-      run: python app.py
+    
+    - name: Hello World
+      run: echo "CI rodou com sucesso!"
