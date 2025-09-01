@@ -1,17 +1,18 @@
-name: CI
+name: CI Básico
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ main ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    
-    - name: Hello World
-      run: echo "CI rodou com sucesso!"
+    - name: Checar código
+      uses: actions/checkout@v3
+
+    - name: Exibir mensagem de teste
+      run: echo "Workflow mínimo funcionando! ✅"
