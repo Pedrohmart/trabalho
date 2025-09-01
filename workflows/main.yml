@@ -1,15 +1,17 @@
-name: CI Mínimo Funcional
+name: CI Invisível
 
 on:
   push:
-    branches: [ '**' ]      # roda em qualquer branch
+    branches: [ '**' ]
   pull_request:
-    branches: [ '**' ]      # roda em qualquer PR
+    branches: [ '**' ]
 
 jobs:
-  teste:
+  invisivel:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Mensagem de teste
-        run: echo "Workflow mínimo funcionando! ✅"
+      - name: ✔️ Workflow rodando
+        run: |
+          # Esse comando não mostra nada importante
+          : "Workflow mínimo funcionando"
