@@ -1,4 +1,4 @@
-name: CI Invisível
+name: CI Python Mínimo
 
 on:
   push:
@@ -7,11 +7,22 @@ on:
     branches: [ '**' ]
 
 jobs:
-  invisivel:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: ✔️ Workflow rodando
+      - name: Checar código
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Instalar dependências
         run: |
-          # Esse comando não mostra nada importante
-          : "Workflow mínimo funcionando"
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Rodar testes
+        run: |
+          if [ -f pytest.ini ] ||
